@@ -8,8 +8,152 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="navbar.css">
+
+    <style>
+        /* ===== PROJECTS PAGE ===== */
+        .Projecttitle {
+            color: var(--wheat);
+            font-family: var(--font-display);
+            font-size: clamp(1.5rem, 5vw, 2.5rem);
+            text-align: center;
+            text-decoration: underline;
+            text-underline-offset: 8px;
+            padding: 40px 20px 20px;
+            font-weight: 400;
+            letter-spacing: 0.1em;
+        }
+
+        .protab {
+            width: 100%;
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            padding: 0 20px 160px;
+            gap: 20px;
+        }
+
+        .pro-card {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 24px;
+            padding: 24px;
+            border-radius: 20px;
+            color: var(--wheat);
+            transition: background 0.3s;
+        }
+
+        /* Odd cards: image left, text right */
+        .pro-card.img-left  { flex-direction: row; }
+        /* Even cards: text left, image right */
+        .pro-card.img-right { flex-direction: row-reverse; }
+
+        .pro-card:hover { background: rgba(255,255,255,0.02); }
+
+        .pro-card img {
+            width: clamp(200px, 40%, 420px);
+            height: auto;
+            border-radius: 16px;
+            transition: transform 0.35s ease;
+            flex-shrink: 0;
+            object-fit: cover;
+        }
+
+        .pro-card img:hover { transform: scale(1.04); }
+
+        .titles1 {
+            flex: 1;
+            min-width: 200px;
+            text-align: center;
+            line-height: 1.6;
+        }
+
+        .protitle {
+            font-family: var(--font-display);
+            font-size: clamp(1rem, 3vw, 1.5rem);
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .prodis {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--white-dim);
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+
+        /* ===== PROJECT LINKS (optional) ===== */
+        .pro-links {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 8px;
+        }
+
+        .pro-btn {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            letter-spacing: 0.1em;
+            padding: 7px 16px;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .pro-btn.outline {
+            border: 1px solid rgba(245,222,179,0.35);
+            color: var(--wheat);
+            background: transparent;
+        }
+
+        .pro-btn.outline:hover {
+            border-color: var(--wheat);
+            background: rgba(245,222,179,0.06);
+        }
+
+        .pro-btn.filled {
+            background: rgba(245,222,179,0.12);
+            color: var(--wheat);
+            border: 1px solid transparent;
+        }
+
+        .pro-btn.filled:hover {
+            background: rgba(245,222,179,0.22);
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            margin-top: auto;
+            padding: 24px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .links { display: flex; gap: 20px; }
+
+        .links a {
+            color: var(--white-dim);
+            font-size: 1.2rem;
+            transition: color 0.2s;
+        }
+
+        .links a:hover { color: var(--wheat); }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 600px) {
+            .pro-card.img-left,
+            .pro-card.img-right { flex-direction: column; }
+
+            .pro-card img { width: 100%; }
+        }
+    </style>
 </head>
 <body>
     <div class="light"></div>
@@ -34,21 +178,8 @@
 
     <main class="fade">
         <h1 class="Projecttitle">Projects</h1>
-        <div class="protab">
-            <div class="pro1">
-                <img src="pro1.png" alt="Dynamic Login Page">
-                <div class="titles1">
-                    <h2 class="protitle">Dynamic Login Page</h2>
-                    <p class="prodis">This webpage is created using just HTML, CSS, and JavaScript. I made this on my 5th day of learning.</p>
-                </div>
-            </div>
-            <div class="pro2">
-                <div class="titles1">
-                    <h2 class="protitle">Anime-style Login Page</h2>
-                    <p class="prodis">This webpage is created using just HTML, CSS, and JavaScript. I made this on my 5th day of learning.</p>
-                </div>
-                <img src="pro2.png" alt="Anime Login Page">
-            </div>
+        <div class="protab" id="projects-container">
+            <!-- Cards are injected by JS below -->
         </div>
     </main>
 
@@ -59,6 +190,108 @@
         </div>
     </footer>
 
-    <script src="js/main.js"></script>
+    <script>
+        /* ============================================================
+           ✏️  EDIT YOUR PROJECTS HERE
+           ------------------------------------------------------------
+           Each project object supports:
+             title       — project name (required)
+             image       — path to image, e.g. "pro1.png" (required)
+             description — short text below the title (required)
+             liveLink    — URL to live demo (optional, leave "" to hide)
+             fileLink    — URL to download / GitHub (optional, leave "" to hide)
+        ============================================================ */
+        const projects = [
+            {
+                title: "Dynamic Login Page",
+                image: "pro1.png",
+                description: "This webpage is created using just HTML, CSS, and JavaScript.\nI made this on my 5th day of learning.",
+                liveLink: "https://your-live-demo.com",
+                fileLink: "https://github.com/yourrepo/project1"
+            },
+            {
+                title: "Anime-style Login Page",
+                image: "pro2.png",
+                description: "This webpage is created using just HTML, CSS, and JavaScript.\nI made this on my 5th day of learning.",
+                liveLink: "",
+                fileLink: "https://github.com/yourrepo/project2"
+            },
+            {
+                title: "Another Project",
+                image: "pro3.png",
+                description: "Short description of what this project does and what you learned.",
+                liveLink: "https://your-live-demo.com",
+                fileLink: ""
+            }
+            /* ➕ Add more projects by copy-pasting a block above */
+        ];
+
+        /* ============================================================
+           ⚙️  Rendering logic — no need to touch below this line
+        ============================================================ */
+        const container = document.getElementById("projects-container");
+
+        projects.forEach((project, index) => {
+            const isEven = index % 2 === 1;
+            const card = document.createElement("div");
+            card.className = `pro-card ${isEven ? "img-right" : "img-left"}`;
+
+            const img = document.createElement("img");
+            img.src = project.image;
+            img.alt = project.title;
+
+            const info = document.createElement("div");
+            info.className = "titles1";
+
+            const title = document.createElement("h2");
+            title.className = "protitle";
+            title.textContent = project.title;
+
+            const desc = document.createElement("p");
+            desc.className = "prodis";
+            desc.textContent = project.description;
+
+            info.appendChild(title);
+            info.appendChild(desc);
+
+            // Optional buttons
+            const hasLinks = project.liveLink || project.fileLink;
+            if (hasLinks) {
+                const btnRow = document.createElement("div");
+                btnRow.className = "pro-links";
+
+                if (project.liveLink) {
+                    const live = document.createElement("a");
+                    live.href = project.liveLink;
+                    live.target = "_blank";
+                    live.className = "pro-btn filled";
+                    live.innerHTML = `<i class="fa-solid fa-arrow-up-right-from-square"></i> LIVE DEMO`;
+                    btnRow.appendChild(live);
+                }
+
+                if (project.fileLink) {
+                    const dl = document.createElement("a");
+                    dl.href = project.fileLink;
+                    dl.target = "_blank";
+                    dl.className = "pro-btn outline";
+                    dl.innerHTML = `<i class="fa-brands fa-github"></i> SOURCE`;
+                    btnRow.appendChild(dl);
+                }
+
+                info.appendChild(btnRow);
+            }
+
+            // Layout: even cards flip image to right side
+            if (isEven) {
+                card.appendChild(info);
+                card.appendChild(img);
+            } else {
+                card.appendChild(img);
+                card.appendChild(info);
+            }
+
+            container.appendChild(card);
+        });
+    </script>
 </body>
 </html>
