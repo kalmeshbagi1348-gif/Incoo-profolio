@@ -34,8 +34,21 @@
 
     <main class="fade">
         <h1 class="Projecttitle">Projects</h1>
-        <div class="protab" id="projects-container">
-            <!-- Cards are injected by JS below -->
+        <div class="protab">
+            <div class="pro1">
+                <img src="pro1.png" alt="Dynamic Login Page">
+                <div class="titles1">
+                    <h2 class="protitle">Dynamic Login Page</h2>
+                    <p class="prodis">This webpage is created using just HTML, CSS, and JavaScript. I made this on my 5th day of learning.</p>
+                </div>
+            </div>
+            <div class="pro2">
+                <div class="titles1">
+                    <h2 class="protitle">Anime-style Login Page</h2>
+                    <p class="prodis">This webpage is created using just HTML, CSS, and JavaScript. I made this on my 5th day of learning.</p>
+                </div>
+                <img src="pro2.png" alt="Anime Login Page">
+            </div>
         </div>
     </main>
 
@@ -46,108 +59,7 @@
         </div>
     </footer>
 
-    <script>
-        /* ============================================================
-           ✏️  EDIT YOUR PROJECTS HERE
-           ------------------------------------------------------------
-           Each project object supports:
-             title       — project name (required)
-             image       — path to image, e.g. "pro1.png" (required)
-             description — short text below the title (required)
-             liveLink    — URL to live demo (optional, leave "" to hide)
-             fileLink    — URL to download / GitHub (optional, leave "" to hide)
-        ============================================================ */
-        const projects = [
-            {
-                title: "Dynamic Login Page",
-                image: "pro1.png",
-                description: "This webpage is created using just HTML, CSS, and JavaScript.\nI made this on my 5th day of learning.",
-                liveLink: "https://your-live-demo.com",
-                fileLink: "https://github.com/yourrepo/project1"
-            },
-            {
-                title: "Anime-style Login Page",
-                image: "pro2.png",
-                description: "This webpage is created using just HTML, CSS, and JavaScript.\nI made this on my 5th day of learning.",
-                liveLink: "",
-                fileLink: "https://github.com/yourrepo/project2"
-            },
-            {
-                title: "Another Project",
-                image: "pro3.png",
-                description: "Short description of what this project does and what you learned.",
-                liveLink: "https://your-live-demo.com",
-                fileLink: ""
-            }
-            /* ➕ Add more projects by copy-pasting a block above */
-        ];
-
-        /* ============================================================
-           ⚙️  Rendering logic — no need to touch below this line
-        ============================================================ */
-        const container = document.getElementById("projects-container");
-
-        projects.forEach((project, index) => {
-            const isEven = index % 2 === 1;
-            const card = document.createElement("div");
-            card.className = `pro-card ${isEven ? "img-right" : "img-left"}`;
-
-            const img = document.createElement("img");
-            img.src = project.image;
-            img.alt = project.title;
-
-            const info = document.createElement("div");
-            info.className = "titles1";
-
-            const title = document.createElement("h2");
-            title.className = "protitle";
-            title.textContent = project.title;
-
-            const desc = document.createElement("p");
-            desc.className = "prodis";
-            desc.textContent = project.description;
-
-            info.appendChild(title);
-            info.appendChild(desc);
-
-            // Optional buttons
-            const hasLinks = project.liveLink || project.fileLink;
-            if (hasLinks) {
-                const btnRow = document.createElement("div");
-                btnRow.className = "pro-links";
-
-                if (project.liveLink) {
-                    const live = document.createElement("a");
-                    live.href = project.liveLink;
-                    live.target = "_blank";
-                    live.className = "pro-btn filled";
-                    live.innerHTML = `<i class="fa-solid fa-arrow-up-right-from-square"></i> LIVE DEMO`;
-                    btnRow.appendChild(live);
-                }
-
-                if (project.fileLink) {
-                    const dl = document.createElement("a");
-                    dl.href = project.fileLink;
-                    dl.target = "_blank";
-                    dl.className = "pro-btn outline";
-                    dl.innerHTML = `<i class="fa-brands fa-github"></i> SOURCE`;
-                    btnRow.appendChild(dl);
-                }
-
-                info.appendChild(btnRow);
-            }
-
-            // Layout: even cards flip image to right side
-            if (isEven) {
-                card.appendChild(info);
-                card.appendChild(img);
-            } else {
-                card.appendChild(img);
-                card.appendChild(info);
-            }
-
-            container.appendChild(card);
-        });
-    </script>
+    <script src="js/main.js"></script>
 </body>
 </html>
+
