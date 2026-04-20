@@ -383,6 +383,9 @@ footer {
     /* Footer repositioned so it doesn't overlap content */
     footer { position: relative; bottom: auto; left: auto; padding: 20px 0 10px 0; }
     .links { flex-direction: row; margin-left: 0; justify-content: center; }
+    .center_text {font-size: clamp(2rem, 5vw, 8rem);}
+    .top_text{font-size: 0.7rem;}
+    .bottom_text{font-size: clamp(0.45rem, 2vw, 0.75rem);}
 
     /* Hero adjustments */
     .hero { min-height: calc(100vh - 70px); }
