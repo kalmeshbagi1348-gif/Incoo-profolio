@@ -320,41 +320,138 @@ footer {
     text-underline-offset: 8px;
     padding: 40px 20px 20px;
     font-weight: 400;
-    letter-spacing: 0.1em;
-}
+    letter-spacing: 0.1em  }
 
-.protab {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    padding: 0 20px 160px;
-    gap: 20px;
-}
+    .protab {
+            width: 100%;
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            padding: 0 20px 160px;
+            gap: 20px;
+        }
 
-.pro1, .pro2 {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 24px;
-    padding: 24px;
-    border-radius: 20px;
-    color: var(--wheat);
-    transition: background 0.3s;
-}
-.pro1:hover, .pro2:hover {
-    background: rgba(255,255,255,0.02);
-}
+     .pro-card {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 24px;
+            padding: 24px;
+            border-radius: 20px;
+            color: var(--wheat);
+            transition: background 0.3s;
+        }
 
-.pro1 img, .pro2 img {
-    width: clamp(200px, 40%, 420px);
-    height: auto;
-    border-radius: 16px;
-    transition: transform 0.35s ease;
-    flex-shrink: 0;
-}
-.pro1 img:hover, .pro2 img:hover { transform: scale(1.04); }
+        /* Odd cards: image left, text right */
+        .pro-card.img-left  { flex-direction: row; }
+        /* Even cards: text left, image right */
+        .pro-card.img-right { flex-direction: row-reverse; }
 
+        .pro-card:hover { background: rgba(255,255,255,0.02); }
+
+        .pro-card img {
+            width: clamp(200px, 40%, 420px);
+            height: auto;
+            border-radius: 16px;
+            transition: transform 0.35s ease;
+            flex-shrink: 0;
+            object-fit: cover;
+        }
+
+        .pro-card img:hover { transform: scale(1.04); }
+
+        .titles1 {
+            flex: 1;
+            min-width: 200px;
+            text-align: center;
+            line-height: 1.6;
+        }
+
+        .protitle {
+            font-family: var(--font-display);
+            font-size: clamp(1rem, 3vw, 1.5rem);
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .prodis {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--white-dim);
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+
+        /* ===== PROJECT LINKS (optional) ===== */
+        .pro-links {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 8px;
+        }
+
+        .pro-btn {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            letter-spacing: 0.1em;
+            padding: 7px 16px;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .pro-btn.outline {
+            border: 1px solid rgba(245,222,179,0.35);
+            color: var(--wheat);
+            background: transparent;
+        }
+
+        .pro-btn.outline:hover {
+            border-color: var(--wheat);
+            background: rgba(245,222,179,0.06);
+        }
+
+        .pro-btn.filled {
+            background: rgba(245,222,179,0.12);
+            color: var(--wheat);
+            border: 1px solid transparent;
+        }
+
+        .pro-btn.filled:hover {
+            background: rgba(245,222,179,0.22);
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            margin-top: auto;
+            padding: 24px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .links { display: flex; gap: 20px; }
+
+        .links a {
+            color: var(--white-dim);
+            font-size: 1.2rem;
+            transition: color 0.2s;
+        }
+
+        .links a:hover { color: var(--wheat); }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 600px) {
+            .pro-card.img-left,
+            .pro-card.img-right { flex-direction: column; }
+
+            .pro-card img { width: 100%; }
+        }
 .titles1 {
     flex: 1;
     min-width: 200px;
