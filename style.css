@@ -23,6 +23,7 @@ html { scroll-behavior: smooth; }
 
 body {
     min-height: 100vh;
+    height: 100%;
     background:
         radial-gradient(circle at 20% 40%, rgba(255,255,255,0.07), transparent 40%),
         radial-gradient(circle at 80% 20%, rgba(255,255,255,0.03), transparent 40%),
@@ -156,7 +157,7 @@ footer {
     height: 180px;
     border-radius: 50%;
     border: 3px solid white;
-    background-image: url("profile_photo1.png");
+    background-image: url("../assets/profile_photo.png");
     background-position: center;
     background-size: cover;
     box-shadow: 0 0 30px rgba(56,189,248,0.3);
@@ -310,27 +311,7 @@ footer {
 }
 .contact-btn:hover { opacity: 1; border-color: var(--accent); }
 
-
-.titles1 {
-    flex: 1;
-    min-width: 200px;
-    text-align: center;
-    line-height: 1.6;
-}
-
-.protitle {
-    font-family: var(--font-display);
-    font-size: clamp(1rem, 3vw, 1.5rem);
-    font-weight: 700;
-    margin-bottom: 12px;
-}
-
-.prodis {
-    font-family: var(--font-mono);
-    font-size: 0.8rem;
-    color: var(--white-dim);
-    line-height: 1.8;
-}
+/* ===== PROJECTS PAGE ===== */
 .Projecttitle {
     color: var(--wheat);
     font-family: var(--font-display);
@@ -351,7 +332,7 @@ footer {
     gap: 20px;
 }
 
-.pro1, .pro2 {
+.pro1, .pro2,pro3{
     width: 100%;
     display: flex;
     flex-wrap: wrap;
@@ -362,18 +343,18 @@ footer {
     color: var(--wheat);
     transition: background 0.3s;
 }
-.pro1:hover, .pro2:hover {
+.pro1:hover, .pro2:hover, .pro3:hover {
     background: rgba(255,255,255,0.02);
 }
 
-.pro1 img, .pro2 img {
+.pro1 img, .pro2 img, .pro3 img{
     width: clamp(200px, 40%, 420px);
     height: auto;
     border-radius: 16px;
     transition: transform 0.35s ease;
     flex-shrink: 0;
 }
-.pro1 img:hover, .pro2 img:hover { transform: scale(1.04); }
+.pro1 img:hover, .pro2 img:hover , .pro3 img:hover { transform: scale(1.04); }
 
 .titles1 {
     flex: 1;
@@ -388,7 +369,28 @@ footer {
     font-weight: 700;
     margin-bottom: 12px;
 }
-
+.pro3 img {
+    margin: 10px;
+    height: 15rem;
+    width: 15rem;
+}
+.pro3 {
+    display:flex;
+    flex-wrap: wrap;
+    align-items: center;
+    h2{
+        color: wheat;
+    }
+    border-radius: 10px;
+    a{
+        /* background-color: rgb(54, 181, 255);
+        color: white;
+        padding: 0.7rem;
+        border-radius: 10px; */
+        text-decoration: none;
+        margin: 10px;
+    }
+}
 .prodis {
     font-family: var(--font-mono);
     font-size: 0.8rem;
@@ -396,18 +398,17 @@ footer {
     line-height: 1.8;
 }
 
-
 /* ===== MOBILE OVERLAY NAV ===== */
 @media (max-width: 768px) {
     .light { width: 200px; height: 200px; }
+    
 
     /* Footer repositioned so it doesn't overlap content */
-    footer { position: relative; bottom: auto; left: auto; padding: 20px 0 10px 0; }
+    footer { position: relative; bottom: 10px; left: auto; padding: 20px 0 10px 0; }
     .links { flex-direction: row; margin-left: 0; justify-content: center; }
     .center_text {font-size: clamp(2rem, 5vw, 8rem);}
     .top_text{font-size: 0.7rem;}
     .bottom_text{font-size: clamp(0.45rem, 2vw, 0.75rem);}
-
     /* Hero adjustments */
     .hero { min-height: calc(100vh - 70px); }
 
@@ -415,6 +416,8 @@ footer {
     .profile { margin: 30px 0; height: 160px; width: clamp(180px, 70vw, 260px); }
     .profile_photo { width: 140px; height: 140px; margin-right: 8px; }
     .title1 { padding: 16px; }
+    .title1 h1 { font-size: clamp(0.9rem, 8vw, 5rem); font-weight: 800; }
+    .title1 h2 { font-size: clamp(0.7rem, 4vw, 2rem); opacity: 0.6; }
     .into { margin-top: 30px; }
     .into1, .into2, .into3 { width: 100%; min-width: unset; }
     .skills { margin-top: 50px; }
@@ -424,4 +427,7 @@ footer {
     .pro2 { flex-direction: column-reverse; }
     .pro1 img, .pro2 img { width: 100%; max-width: 100%; }
     .titles1 { text-align: center; }
+    .pro3 a{
+        align-content: center;
+    }
 }
